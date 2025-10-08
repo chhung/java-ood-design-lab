@@ -21,6 +21,6 @@ public class User {
   }
 
   public double getDiscount() {
-    return 0.0; // 普通用戶無折扣
+    return 1.0; // 普通用戶無折扣
   }
 }
