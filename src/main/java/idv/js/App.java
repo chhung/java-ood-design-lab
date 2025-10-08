@@ -1,5 +1,8 @@
 package idv.js;
 
+import idv.js.solid.dip.MemberData;
+import idv.js.solid.dip.MongoAdapter;
+import idv.js.solid.dip.RedisAdapter;
 import idv.js.solid.ocp.Member;
 import idv.js.solid.srp.User;
 import idv.js.solid.srp.VIP;
@@ -21,5 +24,12 @@ public class App {
     Member vipMember = new Member(vip);
     System.out.println("VIP discount: " + vipMember.getDiscount());
 
+    MemberData memberData = new MemberData(new MongoAdapter());
+    memberData.saveMember(user);
+    memberData.findMemberById("123");
+
+    MemberData memberData2 = new MemberData(new RedisAdapter());
+    memberData2.saveMember(user);
+    memberData2.findMemberById("123");
   }
 }
