@@ -28,6 +28,26 @@ public class Account {
     }
     balance += amount;
   }
+
+  /**
+   * 領出金額
+   * @param amount 領出的金額（必須大於 0）
+   * @throws IllegalArgumentException 如果金額小於或等於 0
+   */
+  public void withdraw(double amount) {
+    if (amount <= 0) {
+      throw new IllegalArgumentException("領出金額必須大於 0");
+    }
+    balance -= amount;
+  }
+
+  public double sumBalances(List<? extends Account> accounts) {
+    double sum = 0.0;
+    for (Account account : accounts) {
+      sum += account.getBalance();
+    }
+    return sum;
+  }
 }
 
 class SavingsAccount extends Account {
